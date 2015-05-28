@@ -6,7 +6,7 @@ import com.yaroslav.other.calendar.WeekDayType;
 /**
  * Created by employee on 5/22/15.
  */
-public class ConsoleAbstractCalendarMonthCalendarRenderer extends AbstractCalendarMonthCalendarRenderer {
+public class ConsoleMonthCalendarRenderer extends AbstractCalendarMonthCalendarRenderer {
 
     public static final String COLOR_BLACK = "\u001B[30m";
     public static final String COLOR_GREEN = "\u001B[32m";

@@ -59,18 +59,18 @@ public class HTMLMonthCalendarRenderer extends AbstractCalendarMonthCalendarRend
 
     @Override
     public String getCloseWeekToken() {
-        return HTML_CLOSE_TEG_TR + ConsoleAbstractCalendarMonthCalendarRenderer.END_LINE;
+        return HTML_CLOSE_TEG_TR + ConsoleMonthCalendarRenderer.END_LINE;
     }
 
     @Override
     public String getOpenMonthToken() {
-        return HTML_STYLE_BOTSTRAP_CSS + ConsoleAbstractCalendarMonthCalendarRenderer.END_LINE + HTML_OPEN_TEG_TABLE +
-                ConsoleAbstractCalendarMonthCalendarRenderer.END_LINE;
+        return HTML_STYLE_BOTSTRAP_CSS + ConsoleMonthCalendarRenderer.END_LINE + HTML_OPEN_TEG_TABLE +
+                ConsoleMonthCalendarRenderer.END_LINE;
     }
 
     @Override
     public String getCloseMonthToken() {
-        return HTML_CLOSE_TEG_TABLE + ConsoleAbstractCalendarMonthCalendarRenderer.END_LINE + HTML_BOTSTRAP_JAVA_SCRIPT;
+        return HTML_CLOSE_TEG_TABLE + ConsoleMonthCalendarRenderer.END_LINE + HTML_BOTSTRAP_JAVA_SCRIPT;
     }
 
     @Override

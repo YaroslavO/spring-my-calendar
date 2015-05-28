@@ -4,8 +4,10 @@ import com.yaroslav.other.calendar.CustomerCalendar;
 import com.yaroslav.other.calendar.FileManager;
 import com.yaroslav.other.calendar.MonthCalendar;
 import com.yaroslav.other.calendar.YearCalendar;
-import com.yaroslav.other.calendar.view.month.HTMLMonthCalendarRenderer;
 import com.yaroslav.other.calendar.view.month.MonthCalendarRenderer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.nio.file.FileSystem;
@@ -17,14 +19,19 @@ import java.util.List;
 /**
  * Created by Yaroslav on 25.05.2015.
  */
+
+@Component
 public abstract class YearCalendarRendererToFile implements CalendarRenderer  {
     public final static String MAIN_DIRECTORY = "calendar";
     public static final String EXTENSION = ".html";
 
+    @Autowired
+    @Qualifier(value = "main")
+    MonthCalendarRenderer monthCalendarRenderer;
+
     @Override
     public void renderer(CustomerCalendar customerCalendar) {
         FileManager fileManager = new FileManager();
-        MonthCalendarRenderer monthCalendarRenderer = new HTMLMonthCalendarRenderer();
         List<YearCalendar> listYear = customerCalendar.getListYear();
         String filePath = getFilePath();
         String link = "";
