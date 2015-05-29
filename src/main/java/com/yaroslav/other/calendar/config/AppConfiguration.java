@@ -1,6 +1,5 @@
 package com.yaroslav.other.calendar.config;
 
-import com.yaroslav.other.calendar.MonthCalendar;
 import com.yaroslav.other.calendar.view.month.ConsoleMonthCalendarRenderer;
 import com.yaroslav.other.calendar.view.month.HTMLMonthCalendarRenderer;
 import com.yaroslav.other.calendar.view.month.MonthCalendarRenderer;
@@ -18,13 +17,13 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfiguration {
 
     @Bean(name = "monthCalendarRenderer")
-    @Qualifier(value = "main")
+    @Qualifier(value = "html")
     public MonthCalendarRenderer getMonthCalendar() {
         return new HTMLMonthCalendarRenderer();
     }
 
     @Bean(name = "monthCalendarRenderer")
-    @Qualifier(value = "other")
+    @Qualifier(value = "text")
     public MonthCalendarRenderer getOtherMonthCalendar() {
         return new ConsoleMonthCalendarRenderer();
     }

@@ -9,19 +9,19 @@ import java.util.stream.Collectors;
  * Created by employee on 5/20/15.
  */
 public class MonthCalendar {
-    private List<Week> weeks;
-    private Calendar date;
+    private List<Week> weeks = new ArrayList<Week>();;
+    private Calendar date = Calendar.getInstance();
 
-    public MonthCalendar() {
-        weeks = new ArrayList<Week>();
+    public MonthCalendar(Calendar date) {
+        this.date.setTime(date.getTime());
+        init();
     }
 
     public List<Week> getWeeks() {
         return weeks;
     }
 
-    public void init(Calendar date) {
-        this.date = date;
+    private void init() {
         Week currentWeek;
         currentWeek = new Week(date);
         date.set(Calendar.DAY_OF_MONTH, 1);
