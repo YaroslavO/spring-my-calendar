@@ -1,4 +1,4 @@
-package com.yaroslav.other.calendar.view.year;
+package com.yaroslav.other.calendar.writer.year;
 
 import java.util.List;
 

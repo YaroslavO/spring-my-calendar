@@ -1,11 +1,12 @@
-package com.yaroslav.other.calendar.view.year;
+package com.yaroslav.other.calendar.writer.year;
 
 import com.yaroslav.other.calendar.CustomCalendar;
 import com.yaroslav.other.calendar.FileManager;
 import com.yaroslav.other.calendar.MonthCalendar;
 import com.yaroslav.other.calendar.YearCalendar;
-import com.yaroslav.other.calendar.view.month.HTMLMonthCalendarRenderer;
-import com.yaroslav.other.calendar.view.month.MonthCalendarRenderer;
+import com.yaroslav.other.calendar.writer.month.HTMLMonthCalendarRenderer;
+import com.yaroslav.other.calendar.writer.month.MonthCalendarRenderer;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -17,13 +18,16 @@ import java.util.List;
  */
 public abstract class AbstractYearCalendarRendererToFile implements CalendarRenderer  {
 
+    @Autowired
+    public CustomCalendar customCalendar;
+
     public static final String TWO_DIR_BACK_PATH = ".." + File.separator + ".." + File.separator;
     private List<String> links;
     FileManager fileManager = new FileManager();
     int numberLink = 0;
 
     @Override
-    public void render(CustomCalendar customCalendar) {
+    public void render() {
         fileManager.deleteDirectories();
         List<YearCalendar> listYear = customCalendar.getListYear();
         links = getListLink(listYear);
@@ -41,7 +45,7 @@ public abstract class AbstractYearCalendarRendererToFile implements CalendarRend
     }
 
     private void saveMonthToFile(MonthCalendar monthCalendar) {
-        NavigatorLink navigator = new NavigatorLink(links, ++numberLink);
+        NavigatorLink navigator = new NavigatorLink(links, numberLink++);
 
         String fileContent = composeMonthContent(navigator, monthCalendar);
 
@@ -59,7 +63,6 @@ public abstract class AbstractYearCalendarRendererToFile implements CalendarRend
 
         return fileContent;
     }
-
 
     private List<String> getListLink(List<YearCalendar> listYear) {
         List<String> linkList = new ArrayList<>();

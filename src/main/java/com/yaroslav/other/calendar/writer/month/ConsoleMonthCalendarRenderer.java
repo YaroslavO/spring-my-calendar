@@ -1,4 +1,4 @@
-package com.yaroslav.other.calendar.view.month;
+package com.yaroslav.other.calendar.writer.month;
 
 import com.yaroslav.other.calendar.WeekDay;
 import com.yaroslav.other.calendar.WeekDayType;

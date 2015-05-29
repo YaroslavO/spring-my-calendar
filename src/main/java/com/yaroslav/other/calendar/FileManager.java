@@ -84,26 +84,32 @@ public class FileManager {
 
     public void deleteDirectories() {
         Path directoryToDelete = getPathToFile(MAIN_DIRECTORY);
-        try {
-            Files.walkFileTree(directoryToDelete, new SimpleFileVisitor<Path>() {
-                @Override
-                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                    Files.delete(file);
-                    return FileVisitResult.CONTINUE;
-                }
-
-                @Override
-                public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-                    Files.delete(dir);
-                    return FileVisitResult.CONTINUE;
-                }
-
-            });
-        } catch (IOException e) {
-            e.printStackTrace();
+        File dir = new File(directoryToDelete.toString());
+        if (dir.exists()) {
+            try {
+                deleteAllDirectoryAndFile(directoryToDelete);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
+    private void deleteAllDirectoryAndFile(Path directoryToDelete) throws IOException {
+        Files.walkFileTree(directoryToDelete, new SimpleFileVisitor<Path>() {
+            @Override
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                Files.delete(file);
+                return FileVisitResult.CONTINUE;
+            }
+
+            @Override
+            public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                Files.delete(dir);
+                return FileVisitResult.CONTINUE;
+            }
+
+        });
+    }
 
 
     public String getPathFileByDate(Calendar date) {

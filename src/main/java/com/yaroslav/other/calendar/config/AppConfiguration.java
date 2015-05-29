@@ -1,11 +1,18 @@
 package com.yaroslav.other.calendar.config;
 
-import com.yaroslav.other.calendar.view.month.ConsoleMonthCalendarRenderer;
-import com.yaroslav.other.calendar.view.month.HTMLMonthCalendarRenderer;
-import com.yaroslav.other.calendar.view.month.MonthCalendarRenderer;
-import com.yaroslav.other.calendar.view.year.CalendarRenderer;
-import com.yaroslav.other.calendar.view.year.HTMLYearCalendarRendererToFile;
+import com.yaroslav.other.calendar.CustomCalendar;
+import com.yaroslav.other.calendar.reader.ConsoleReaderImpl;
+import com.yaroslav.other.calendar.reader.CustomReaderImpl;
+import com.yaroslav.other.calendar.reader.FileReaderImpl;
+import com.yaroslav.other.calendar.reader.Reader;
+import com.yaroslav.other.calendar.writer.month.ConsoleMonthCalendarRenderer;
+import com.yaroslav.other.calendar.writer.month.HTMLMonthCalendarRenderer;
+import com.yaroslav.other.calendar.writer.month.MonthCalendarRenderer;
+import com.yaroslav.other.calendar.writer.year.CalendarRenderer;
+import com.yaroslav.other.calendar.writer.year.HTMLYearCalendarRendererToFile;
+import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -28,9 +35,31 @@ public class AppConfiguration {
         return new ConsoleMonthCalendarRenderer();
     }
 
-    @Bean(name = "calendarRenderer")
+    @Bean(name = "HTMLYearCalendarRendererToFile")
     public CalendarRenderer getCalendarRenderer() {
         return new HTMLYearCalendarRendererToFile();
     }
 
+    @Bean(name = "customReader")
+    @Qualifier(value = "customRead")
+    public Reader getCustomReader() {
+        return new CustomReaderImpl();
+    }
+
+    @Bean(name = "consoleReader")
+    @Qualifier(value = "consoleRead")
+    public Reader getConsoleReader() {
+        return new ConsoleReaderImpl();
+    }
+
+    @Bean(name = "fileReader")
+    @Qualifier(value = "fileRead")
+    public Reader getFileReader() {
+        return new FileReaderImpl();
+    }
+
+    @Bean(name = "customCalendar")
+    public CustomCalendar getCustomCalendar(@Qualifier(value = "customRead") Reader reader) {
+        return new CustomCalendar(reader);
+    }
 }
