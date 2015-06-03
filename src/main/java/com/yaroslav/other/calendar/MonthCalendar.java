@@ -26,8 +26,15 @@ public class MonthCalendar {
         currentWeek = new Week(date);
         date.set(Calendar.DAY_OF_MONTH, 1);
         int countWeeks = getCountWeeks(date) - 1;
+
         currentWeek.init();
         weeks.add(currentWeek);
+
+        createWeeks(countWeeks);
+    }
+
+    private void createWeeks(int countWeeks) {
+        Week currentWeek;
         for (int count = 0; count < countWeeks; count++) {
             currentWeek = weeks.get(count).createNextWeek();
             weeks.add(currentWeek);
