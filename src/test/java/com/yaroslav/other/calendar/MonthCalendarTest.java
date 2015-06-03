@@ -36,7 +36,7 @@ public class MonthCalendarTest {
     }
 
     @Test
-    public void checkListWeek__returnsTrue__fromCurrentMonth() throws Exception {
+    public void checkListWeek__returnsNotNull__fromCurrentMonth() throws Exception {
         assertThat("list weeks of current month", thisMonth.getWeeks(), not(equalTo(null)));
 
     }
