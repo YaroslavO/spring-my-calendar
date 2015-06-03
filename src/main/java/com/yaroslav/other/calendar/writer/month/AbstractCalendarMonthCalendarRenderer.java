@@ -64,7 +64,7 @@ public abstract class AbstractCalendarMonthCalendarRenderer implements MonthCale
     }
 
     public String calculateDayColor(WeekDay day) {
-        if (day.isTheCurrentDay()) return getCurrentDayColor();
+        if (day.isTheCurrentDayOfMonth()) return getCurrentDayColor();
 
         if (day.isOtherMonth()) return getOtherMonthColor();
 

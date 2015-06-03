@@ -1,7 +1,6 @@
 package com.yaroslav.other.calendar;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by employee on 5/20/15.
@@ -34,7 +33,7 @@ public class WeekDay {
         return week.getDate().get(Calendar.MONTH) != day.get(Calendar.MONTH);
     }
 
-    public boolean isTheCurrentDay() {
+    public boolean isTheCurrentDayOfMonth() {
         return week.getDate().compareTo(day) == 0;
     }
 }
