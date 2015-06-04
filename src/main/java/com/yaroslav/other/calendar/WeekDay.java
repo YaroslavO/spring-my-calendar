@@ -21,7 +21,7 @@ public class WeekDay{
     public WeekDay(Calendar date, Week week) {
         this.day = date;
         this.week = week;
-        type = WeekDayType.values()[date.get(Calendar.DAY_OF_WEEK) - 1];
+        type = WeekDayType.getById(Calendar.DAY_OF_WEEK);
     }
 
     @Override

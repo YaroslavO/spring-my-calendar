@@ -22,9 +22,12 @@ public enum WeekDayType {
 
     private boolean weekendDay;
 
+    private int id;
+
     WeekDayType(int id, String title, boolean weekendDay) {
         this.title = title;
         this.weekendDay = weekendDay;
+        this.id = id;
     }
 
     @Override
@@ -35,6 +38,16 @@ public enum WeekDayType {
     public static WeekDayType getByTitle(String title) {
         for (WeekDayType weekDayType : WeekDayType.values()) {
             if (weekDayType.toString().compareTo(title) != 0) continue;
+
+            return weekDayType;
+        }
+
+        return null;
+    }
+
+    public static WeekDayType getById(int id) {
+        for (WeekDayType weekDayType : WeekDayType.values()) {
+            if (weekDayType.id != id) continue;
 
             return weekDayType;
         }
