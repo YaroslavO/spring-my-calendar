@@ -60,4 +60,14 @@ public class WeekDayTest {
 
         assertThat("is current date of this month", currentDate, is(false));
     }
+
+    @Test
+    public void checkCorrectType() throws Exception {
+        WeekDay weekDay = new WeekDay(calendar, null);
+
+        WeekDayType currentWeekDayType = weekDay.getType();
+        WeekDayType controlWeekDayType = WeekDayType.getById(calendar.get(Calendar.DAY_OF_WEEK));
+
+        assertThat(currentWeekDayType, is(controlWeekDayType));
+    }
 }
