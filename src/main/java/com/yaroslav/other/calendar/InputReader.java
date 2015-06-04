@@ -14,7 +14,7 @@ public class InputReader {
     private final int CUSTOM_MONTH = 5;
     private final int CUSTOM_DAY = 9;
 
-    public Calendar getFirstDayOfMonth(String[] args) {
+    public Calendar getFirstDayOfMonth() {
         Scanner in = new Scanner(System.in);
         String yearMonthDay;
         System.out.println("Please enter year month day");
@@ -50,7 +50,9 @@ public class InputReader {
             }
         }
 
-        return new GregorianCalendar(year, month, day);
+        Calendar resultCalendar = Calendar.getInstance();
+        resultCalendar.set(year, month, day);
+        return resultCalendar;
     }
 
     public int getMonth(String value) {
