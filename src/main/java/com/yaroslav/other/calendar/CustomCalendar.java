@@ -16,8 +16,7 @@ public class CustomCalendar {
     public CustomCalendar(Reader reader) {
         taskYear = reader.read();
         for (String targetYear: taskYear) {
-            YearCalendar yearCalendar = new YearCalendar();
-            yearCalendar.init(targetYear);
+            YearCalendar yearCalendar = new YearCalendar(targetYear);
             listYear.add(yearCalendar);
         }
     }

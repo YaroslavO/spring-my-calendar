@@ -9,26 +9,26 @@ import java.util.List;
  */
 public class YearCalendar {
     private Integer name;
-    private List<MonthCalendar> months;
+    private List<MonthCalendar> months = new ArrayList<>();
 
-    public YearCalendar () {
-        months = new ArrayList<>();
+    public YearCalendar (String targetYear) {
+        init(targetYear);
     }
 
-    public void init(String targetYear) {
+    private void init(String targetYear) {
 
         String [] parseYear = targetYear.trim().split(" ");
 
         this.name = Integer.valueOf(parseYear[0]);
 
         if (isOnlyYear(parseYear)) {
-            createAllYear();
+            createAllMonths();
         } else {
-            createSomeMonth(parseYear);
+            createCustomMonths(parseYear);
         }
     }
 
-    private void createSomeMonth(String[] parseYear) {
+    private void createCustomMonths(String[] parseYear) {
         for (int month = 1; month < parseYear.length; month++) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.YEAR, this.name);
@@ -40,7 +40,7 @@ public class YearCalendar {
         }
     }
 
-    private void createAllYear() {
+    private void createAllMonths() {
         for (int month = 0; month < 12; month++) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.YEAR, this.name);
@@ -58,7 +58,7 @@ public class YearCalendar {
 
     public int getMonth(String value) {
         switch (value) {
-            case "0":
+            case "1":
             case "01":
             case "jan":
             case "january": return 0;
