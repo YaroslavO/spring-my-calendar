@@ -19,9 +19,11 @@ public class FileManager {
     public static final String NAME_FILE = "my-app.iml";
 
     public void saveToFile(String fileName, String content) {
-        String[] partPath = fileName.split(File.separator);
-        createDirIfNotExist(partPath[0]);
-        createDirIfNotExist(partPath[0] + File.separator + partPath[1]);
+        if (fileName.contains(File.separator)) {
+            String[] partPath = fileName.split(File.separator);
+            createDirIfNotExist(partPath[0]);
+            createDirIfNotExist(partPath[0] + File.separator + partPath[1]);
+        }
 
         File file = new File(fileName);
 
@@ -116,14 +118,5 @@ public class FileManager {
         return MAIN_DIRECTORY + File.separator +
                 date.get(Calendar.YEAR) + File.separator +
                 (date.get(Calendar.MONTH) + 1) + EXTENSION;
-    }
-
-    public String getPathToCreateDirectory() {
-        FileManager fileManager = new FileManager();
-
-        String filePath = fileManager.getPathToFile(NAME_FILE).toString();
-        filePath = filePath.substring(0, filePath.lastIndexOf(File.separator));
-
-        return filePath + File.separator;
     }
 }

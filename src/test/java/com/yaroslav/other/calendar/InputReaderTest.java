@@ -23,7 +23,7 @@ public class InputReaderTest {
     public void setUp() throws Exception {
         calendar = Calendar.getInstance();
         calendar.set(2015, Calendar.JUNE, 2);
-        calendar = CalendarHelper.setMinuteSecondsMilisecondsINZero(calendar);
+        calendar = CalendarHelper.setMinuteSecondsMillisecondsINZero(calendar);
 
         reader = new InputReader();
     }
@@ -41,7 +41,7 @@ public class InputReaderTest {
     public void checkDate__returnsCalendar__forInputReader() throws Exception {
         String stringDate = "2015 06 02";
         Calendar calendarWithString = reader.getDateWithString(stringDate);
-        calendarWithString = CalendarHelper.setMinuteSecondsMilisecondsINZero(calendarWithString);
+        calendarWithString = CalendarHelper.setMinuteSecondsMillisecondsINZero(calendarWithString);
 
         assertThat("check date with convert string to calendar", calendar, is(calendarWithString));
     }

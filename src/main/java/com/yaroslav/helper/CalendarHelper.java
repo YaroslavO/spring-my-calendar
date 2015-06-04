@@ -12,7 +12,7 @@ public class CalendarHelper {
         return date.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault()).toLowerCase();
     }
 
-    public static Calendar setMinuteSecondsMilisecondsINZero(Calendar calendar) {
+    public static Calendar setMinuteSecondsMillisecondsINZero(Calendar calendar) {
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);

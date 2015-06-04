@@ -8,6 +8,7 @@ import java.util.Scanner;
  * Created by employee on 5/29/15.
  */
 public class ConsoleReaderImpl implements Reader {
+
     @Override
     public List<String> read() {
         List<String> listYearAndMonth = new ArrayList<>();

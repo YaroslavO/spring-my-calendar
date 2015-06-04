@@ -12,6 +12,9 @@ public class Week {
     private Calendar dayOfWeek;
     private Calendar currentDate;
 
+    public Week() {
+    }
+
     public Week(Calendar date) {
         this.currentDate = new GregorianCalendar(date.get(Calendar.YEAR), date.get(Calendar.MONTH),
                 date.get(Calendar.DAY_OF_MONTH));
@@ -88,5 +91,34 @@ public class Week {
         Week week = new Week(currentDate, dayOfWeek);
         week.init();
         return week;
+    }
+
+    public void setDays(List<WeekDay> days) {
+        this.days = days;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        List<WeekDay> weeksOfOtherWeek = ((Week) obj).getDays();
+
+        if (weeksOfOtherWeek == null) {
+            return false;
+        }
+
+        if (days == null) {
+            return false;
+        }
+        
+        if (weeksOfOtherWeek.size() != days.size()) {
+            return false;
+        }
+
+        for (int i = 0; i < weeksOfOtherWeek.size(); i++) {
+            if (!weeksOfOtherWeek.get(i).equals(days.get(i))) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

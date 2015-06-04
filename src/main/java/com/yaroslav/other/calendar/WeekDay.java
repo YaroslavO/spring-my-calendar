@@ -5,7 +5,7 @@ import java.util.Calendar;
 /**
  * Created by employee on 5/20/15.
  */
-public class WeekDay {
+public class WeekDay{
     private WeekDayType type;
     private Calendar day;
     private Week week;
@@ -35,5 +35,11 @@ public class WeekDay {
 
     public boolean isTheCurrentDayOfMonth() {
         return week.getDate().compareTo(day) == 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Calendar otherDay = ((WeekDay) obj).getDay();
+        return day.get(Calendar.DATE) == otherDay.get(Calendar.DATE);
     }
 }

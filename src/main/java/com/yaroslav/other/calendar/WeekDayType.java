@@ -14,7 +14,6 @@ public enum WeekDayType {
     FRIDAY(Calendar.FRIDAY, "FRI", false),
     SATURDAY(Calendar.SATURDAY, "SAT", true);
 
-    private int id;
     private String title;
 
     public boolean isWeekendDay() {
@@ -24,13 +23,8 @@ public enum WeekDayType {
     private boolean weekendDay;
 
     WeekDayType(int id, String title, boolean weekendDay) {
-        this.id = id;
         this.title = title;
         this.weekendDay = weekendDay;
-    }
-
-    public int getId() {
-        return id;
     }
 
     @Override

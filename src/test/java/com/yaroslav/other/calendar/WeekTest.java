@@ -26,7 +26,7 @@ public class WeekTest {
     }
 
     @Test
-    public void isCreatenextWeek__returnsTrue__forCurrentMonth() throws Exception {
+    public void isCreateNextWeek__returnsTrue__forCurrentMonth() throws Exception {
         Week currentWeek = new Week(calendar);
 
         Week nextWeek = currentWeek.createNextWeek();
