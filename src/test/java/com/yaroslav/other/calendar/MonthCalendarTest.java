@@ -86,4 +86,14 @@ public class MonthCalendarTest {
         assertThat("list weeks of current month", thisMonth.getWeeks(), not(equalTo(null)));
 
     }
+
+    @Test
+    public void checkDateIsCurrent() throws Exception {
+        MonthCalendar monthCalendar = new MonthCalendar(calendar);
+
+        Calendar dateInMonthCalendar = monthCalendar.getDate();
+
+        assertThat(calendar, is(dateInMonthCalendar));
+
+    }
 }

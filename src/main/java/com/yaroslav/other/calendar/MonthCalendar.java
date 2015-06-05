@@ -11,9 +11,11 @@ import java.util.stream.Collectors;
 public class MonthCalendar {
     private List<Week> weeks = new ArrayList<Week>();;
     private Calendar date = Calendar.getInstance();
+    private Calendar currentDate = Calendar.getInstance();
 
     public MonthCalendar(Calendar date) {
         this.date.setTime(date.getTime());
+        this.currentDate.setTime(date.getTime());
         init();
     }
 
@@ -62,6 +64,6 @@ public class MonthCalendar {
     }
 
     public Calendar getDate() {
-        return date;
+        return currentDate;
     }
 }
