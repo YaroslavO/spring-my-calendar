@@ -43,14 +43,6 @@ public class MonthCalendar {
         }
     }
 
-    @Override
-    public String toString() {
-        return weeks
-                .stream()
-                .map(p -> p.toString())
-                .collect(Collectors.joining("\n\n"));
-    }
-
     public int getCountWeeks(Calendar calendar) {
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1;
         int cntDayOfMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);

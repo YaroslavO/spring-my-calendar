@@ -16,7 +16,6 @@ public class FileManager {
 
     public final static String MAIN_DIRECTORY = "calendar";
     public static final String EXTENSION = ".html";
-    public static final String NAME_FILE = "my-app.iml";
 
     public void saveToFile(String fileName, String content) {
         if (fileName.contains(File.separator)) {
@@ -77,7 +76,7 @@ public class FileManager {
         throw new IOException("Bad path to file " + pathToSource);
     }
 
-    public Path getPathToFile(String nameFile) {
+    public Path getPathToFileOrDirectory(String nameFile) {
         FileSystem fs = FileSystems.getDefault();
         Path path1 = fs.getPath(nameFile);
         String absolutePath = path1.toAbsolutePath().toString();
@@ -85,7 +84,7 @@ public class FileManager {
     }
 
     public void deleteDirectories() {
-        Path directoryToDelete = getPathToFile(MAIN_DIRECTORY);
+        Path directoryToDelete = getPathToFileOrDirectory(MAIN_DIRECTORY);
         File dir = new File(directoryToDelete.toString());
         if (dir.exists()) {
             try {

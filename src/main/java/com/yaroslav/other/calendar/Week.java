@@ -36,14 +36,6 @@ public class Week {
         return currentDate;
     }
 
-    @Override
-    public String toString() {
-        return days
-                .stream()
-                .map(p -> p.toString())
-                .collect(Collectors.joining(" "));
-    }
-
     private Calendar setFirstDayInDateOfMonth(Calendar date) {
         date.set(Calendar.DAY_OF_MONTH, 1);
         return date;

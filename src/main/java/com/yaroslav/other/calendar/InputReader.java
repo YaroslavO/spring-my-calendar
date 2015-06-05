@@ -14,14 +14,6 @@ public class InputReader {
     private final int CUSTOM_MONTH = 5;
     private final int CUSTOM_DAY = 9;
 
-    public Calendar getFirstDayOfMonth() {
-        Scanner in = new Scanner(System.in);
-        String yearMonthDay;
-        System.out.println("Please enter year month day");
-        yearMonthDay = in.nextLine();
-        return getDateWithString(yearMonthDay);
-    }
-
     public Calendar getDateWithString(String stringDate) {
         int year = CUSTOM_YEAR;
         int month = CUSTOM_MONTH;
