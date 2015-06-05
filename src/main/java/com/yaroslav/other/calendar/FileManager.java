@@ -41,7 +41,7 @@ public class FileManager {
         }
     }
 
-    private void createDirIfNotExist(String pathToDir) {
+    public void createDirIfNotExist(String pathToDir) {
         File dir = new File(pathToDir);
         if (!dir.exists()) {
             try {
@@ -50,6 +50,11 @@ public class FileManager {
                 e.printStackTrace();
             }
         }
+    }
+
+    public boolean isAllowedDirectory(String name) {
+        File dir = new File(name);
+        return dir.exists();
     }
 
     public boolean isAllowedFile(String pathToSource) {
@@ -85,6 +90,18 @@ public class FileManager {
 
     public void deleteDirectories() {
         Path directoryToDelete = getPathToFileOrDirectory(MAIN_DIRECTORY);
+        File dir = new File(directoryToDelete.toString());
+        if (dir.exists()) {
+            try {
+                deleteAllDirectoryAndFile(directoryToDelete);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void deleteDirectories(String nameDirectory) {
+        Path directoryToDelete = getPathToFileOrDirectory(nameDirectory);
         File dir = new File(directoryToDelete.toString());
         if (dir.exists()) {
             try {
