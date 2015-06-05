@@ -19,7 +19,7 @@ public class FileManager {
 
     public void saveToFile(String fileName, String content) {
         if (fileName.contains(File.separator)) {
-            String[] partPath = fileName.split(File.separator + File.separator);
+            String[] partPath = fileName.split(File.separator);
             createDirIfNotExist(partPath[0]);
             createDirIfNotExist(partPath[0] + File.separator + partPath[1]);
         }
