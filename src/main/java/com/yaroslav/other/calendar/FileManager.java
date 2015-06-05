@@ -52,7 +52,7 @@ public class FileManager {
         }
     }
 
-    public boolean isAllowed(String pathToSource) {
+    public boolean isAllowedFile(String pathToSource) {
         File readFile = new File(pathToSource);
         return readFile.isFile() && readFile.canRead() && readFile.exists();
     }
@@ -69,7 +69,7 @@ public class FileManager {
     }
 
     public List<String> loadSource(String pathToSource) throws IOException {
-        if (isAllowed(pathToSource)) {
+        if (isAllowedFile(pathToSource)) {
             return load(pathToSource);
         }
 
