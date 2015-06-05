@@ -10,6 +10,7 @@ import com.yaroslav.other.calendar.writer.month.HTMLMonthCalendarRenderer;
 import com.yaroslav.other.calendar.writer.month.MonthCalendarRenderer;
 import com.yaroslav.other.calendar.writer.year.CalendarRenderer;
 import com.yaroslav.other.calendar.writer.year.HTMLYearCalendarRendererToFile;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
